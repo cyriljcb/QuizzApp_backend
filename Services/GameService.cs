@@ -71,6 +71,30 @@ public class GameService
         return (true, null, room);
     }
 
+    // ── Rejoindre en tant que spectateur (Angular) ───────────────
+
+    public (bool success, string? error, Room? room) JoinAsSpectator(
+        string code, string connectionId)
+    {
+        if (!_rooms.TryGetValue(code.ToUpper(), out var room))
+            return (false, "Room introuvable.", null);
+
+        if (room.Players.Any(p => p.Role == PlayerRole.Host))
+            return (false, "Un écran maître est déjà connecté à cette room.", null);
+
+        var spectator = new Player
+        {
+            ConnectionId = connectionId,
+            Pseudo = "__spectator__",
+            Role = PlayerRole.Host
+        };
+
+        room.Players.Add(spectator);
+        _logger.LogInformation("Écran maître connecté à la room {Code}", code);
+
+        return (true, null, room);
+    }
+
     // ── Démarrage atomique ───────────────────────────────────
     // Garantit qu'une room ne peut pas démarrer deux fois simultanément
 
@@ -119,6 +143,20 @@ public class GameService
             _logger.LogInformation("Room {Code} supprimée (vide)", room.Code);
         }
     }
+
+    public bool RemoveRoom(string code)
+    {
+        var roomCode = code.ToUpper();
+        var removed = _rooms.TryRemove(roomCode, out _);
+
+        if (removed)
+        {
+            _logger.LogInformation("Room {Code} supprimée", roomCode);
+        }
+
+        return removed;
+    }
+
 
     // ── Réinitialiser les réponses pour un nouveau round ────
 

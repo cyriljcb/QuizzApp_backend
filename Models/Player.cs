@@ -16,5 +16,6 @@ public class Player
 public enum PlayerRole
 {
     Player,
-    Host    // Maître du jeu — observe, ne répond pas
+    Host,
+    Spectator
 }

@@ -41,25 +41,23 @@ public class GameHub : Hub
 
             if (player is not null)
             {
-                if (room.HostConnectionId == Context.ConnectionId
-                    && room.Status == RoomStatus.Playing)
+                if (room.HostConnectionId == Context.ConnectionId)
                 {
-                    room.Status = RoomStatus.Finished;
                     _roundManager.CancelRoom(room.Code);
+                    room.Status = RoomStatus.Finished;
+                    _gameService.RemoveRoom(room.Code);
 
                     await Clients.Group(room.Code)
                         .SendAsync("HostLeft",
-                            "L'hôte s'est déconnecté, la partie est annulée.");
+                            "L'écran maître s'est déconnecté, la partie est annulée.");
                 }
                 else if (room.Status == RoomStatus.Playing)
                 {
-                    // En cours de partie → on garde le joueur, juste notifier
                     await Clients.Group(room.Code)
                         .SendAsync("PlayerLeft", player.Pseudo);
                 }
                 else
                 {
-                    // En attente → suppression définitive
                     _gameService.RemovePlayer(Context.ConnectionId);
 
                     await Clients.Group(room.Code)
@@ -74,7 +72,41 @@ public class GameHub : Hub
     // ══════════════════════════════════════════════════════
     // GESTION DE LA ROOM
     // ══════════════════════════════════════════════════════
+    public async Task JoinAsSpectator(string roomCode)
+    {
+        try
+        {
+            var (success, error, room) = _gameService.JoinAsSpectator(
+                roomCode, Context.ConnectionId);
 
+            if (!success || room is null)
+            {
+                await SendError(error ?? "Impossible de rejoindre comme spectateur.");
+                return;
+            }
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, room.Code);
+
+            // On confirme la connexion et on envoie l'état actuel
+            await Clients.Caller.SendAsync("SpectatorJoined", new
+            {
+                roomCode = room.Code,
+                status = room.Status.ToString(),
+                players = room.Players
+                    .Where(p => p.Role != PlayerRole.Spectator)
+                    .Select(p => p.Pseudo)
+                    .ToList()
+            });
+
+            _logger.LogInformation(
+                "Écran maître connecté à la room {Code}", roomCode);
+        }
+        catch (Exception ex)
+        {
+            await SendError("Impossible de rejoindre la room.");
+            _logger.LogError(ex, "Erreur JoinAsSpectator");
+        }
+    }
     public async Task CreateRoom(string pseudo)
     {
         try
@@ -87,6 +119,16 @@ public class GameHub : Hub
             {
                 roomCode = room.Code,
                 pseudo
+            });
+
+            await Clients.Caller.SendAsync("RoomJoined", new
+            {
+                roomCode = room.Code,
+                pseudo,
+                players = room.Players
+                    .Where(p => p.Role != PlayerRole.Spectator)
+                    .Select(p => p.Pseudo)
+                    .ToList()
             });
 
             _logger.LogInformation(
@@ -118,7 +160,10 @@ public class GameHub : Hub
             {
                 roomCode = room.Code,
                 pseudo,
-                players = room.Players.Select(p => p.Pseudo).ToList()
+                players = room.Players
+                    .Where(p => p.Role != PlayerRole.Spectator)
+                    .Select(p => p.Pseudo)
+                    .ToList()
             });
 
             await Clients.OthersInGroup(room.Code)
@@ -133,13 +178,46 @@ public class GameHub : Hub
             _logger.LogError(ex, "Erreur JoinRoom");
         }
     }
+    public async Task SubmitAnswer(string roomCode, string answer)
+    {
+        try
+        {
+            var room = _gameService.GetRoom(roomCode);
+
+            if (room is null || room.Status != RoomStatus.Playing)
+                return;
+
+            var player = room.Players
+                .FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
+
+            // Seuls les joueurs (Player) soumettent des réponses
+            // Host Angular (Role == Host) exclus
+            if (player is null || player.Role == PlayerRole.Spectator)
+                return;
+
+            if (player.HasAnswered)
+                return;
+
+            await _roundManager.SubmitAnswer(room, player, answer);
+
+            await Clients.Caller.SendAsync("AnswerReceived", new { answer });
+
+            await Clients.OthersInGroup(roomCode)
+                .SendAsync("PlayerAnswered", player.Pseudo);
+        }
+        catch (Exception ex)
+        {
+            await SendError("Impossible d'envoyer la réponse.");
+            _logger.LogError(ex, "Erreur SubmitAnswer");
+        }
+    }
 
     // ══════════════════════════════════════════════════════
     // DÉROULEMENT DE LA PARTIE
     // ══════════════════════════════════════════════════════
 
-    public async Task StartGame(string roomCode, string? theme = null)
-    {
+  public async Task StartGame(string roomCode, string? theme = null, int questionCount = 10)
+  {
         try
         {
             var room = _gameService.GetRoom(roomCode);
@@ -156,26 +234,24 @@ public class GameHub : Hub
                 return;
             }
 
-            // ── Vérification joueurs AVANT de locker la room ──
-            if (room.Players.Count(p => p.Role == PlayerRole.Player) < 1)
+            if (room.Players.Count(p => p.Role != PlayerRole.Spectator) < 1)
             {
                 await SendError("Au moins un joueur est requis.");
                 return;
             }
 
-            // TryStartRoom seulement si tout est ok
             if (!_gameService.TryStartRoom(roomCode))
             {
                 await SendError("La partie a déjà commencé.");
                 return;
             }
 
-            var questionCount = _config
-                .GetValue<int>("GameSettings:QuestionsPerGame");
+            // questionCount borné entre 5 et 30
+            var count = Math.Clamp(questionCount, 5, 30);
 
             var questions = await _questionService.GetQuestionsForGame(
                 theme: theme,
-                count: questionCount);
+                count: count);
 
             if (questions.Count == 0)
             {
@@ -197,39 +273,6 @@ public class GameHub : Hub
             _logger.LogError(ex, "Erreur StartGame");
         }
     }
-
-    public async Task SubmitAnswer(string roomCode, string answer)
-    {
-        try
-        {
-            var room = _gameService.GetRoom(roomCode);
-
-            if (room is null || room.Status != RoomStatus.Playing)
-                return;
-
-            var player = room.Players
-                .FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
-
-            if (player is null || player.Role == PlayerRole.Host)
-                return;
-
-            if (player.HasAnswered)
-                return;
-
-            await _roundManager.SubmitAnswer(room, player, answer);
-
-            await Clients.Caller.SendAsync("AnswerReceived", new { answer });
-
-            await Clients.OthersInGroup(roomCode)
-                .SendAsync("PlayerAnswered", player.Pseudo);
-        }
-        catch (Exception ex)
-        {
-            await SendError("Impossible d'envoyer la réponse.");
-            _logger.LogError(ex, "Erreur SubmitAnswer");
-        }
-    }
-
     public async Task RejoinRoom(string roomCode, string pseudo)
     {
         try
@@ -263,7 +306,10 @@ public class GameHub : Hub
             {
                 roomCode = room.Code,
                 pseudo,
-                players = room.Players.Select(p => p.Pseudo).ToList()
+                players = room.Players
+                    .Where(p => p.Role != PlayerRole.Spectator)
+                    .Select(p => p.Pseudo)
+                    .ToList()
             });
 
             // Informe les autres que le joueur est de retour

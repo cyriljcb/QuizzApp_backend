@@ -117,7 +117,7 @@ public class RoundManager
 
         // Round normal — si tout le monde a répondu
         var activePlayers = room.Players
-            .Where(p => p.Role == PlayerRole.Player)
+            .Where(p => p.Role != PlayerRole.Spectator)
             .ToList();
 
         if (activePlayers.All(p => p.HasAnswered))
@@ -177,11 +177,9 @@ public class RoundManager
     private async Task EndGame(Room room)
     {
         var players = room.Players
-            .Where(p => p.Role == PlayerRole.Player)
-            .OrderByDescending(p => p.Score)
+            .Where(p => p.Role == PlayerRole.Player)  // ✅ déjà présen
             .ToList();
 
-        // Détecte égalité au sommet
         var topScore = players.First().Score;
         var topPlayers = players.Where(p => p.Score == topScore).ToList();
 
