@@ -1,0 +1,520 @@
+[
+  {
+    "id": "motc-001",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal se cache dans le mot CHATOUILLER ?",
+    "image_url": null,
+    "answer": "chat",
+    "accepted_answers": [
+      "chat"
+    ],
+    "hint": "Il ronronne et griffonne.",
+    "explanation": "CHATOUILLER commence par les lettres C-H-A-T : CHAT-ouiller.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-002",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel métal précieux se cache dans le mot DORADE ?",
+    "image_url": null,
+    "answer": "or",
+    "accepted_answers": [
+      "or"
+    ],
+    "hint": "Il brille et vaut très cher.",
+    "explanation": "Dans d-OR-ade, les deux lettres O-R forment le mot OR.",
+    "tags": [
+      "métaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-003",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal se cache dans le mot RENARDEAU ?",
+    "image_url": null,
+    "answer": "renard",
+    "accepted_answers": [
+      "renard"
+    ],
+    "hint": "C'est le parent de ce petit animal.",
+    "explanation": "RENARDEAU commence par RENARD : RENARD-eau (le suffixe -eau est un diminutif).",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-004",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel instrument de musique se cache dans le mot PIANOTER ?",
+    "image_url": null,
+    "answer": "piano",
+    "accepted_answers": [
+      "piano"
+    ],
+    "hint": "Il a des touches noires et blanches.",
+    "explanation": "PIANOTER commence par PIANO : PIANO-ter.",
+    "tags": [
+      "musique",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-005",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal se cache dans le mot COQUELICOT ?",
+    "image_url": null,
+    "answer": "coq",
+    "accepted_answers": [
+      "coq"
+    ],
+    "hint": "Il chante le matin à la ferme.",
+    "explanation": "COQUELICOT commence par les lettres C-O-Q : COQ-uelicot.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-006",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel nombre se cache dans le mot SEPTIÈME ?",
+    "image_url": null,
+    "answer": "sept",
+    "accepted_answers": [
+      "sept",
+      "7"
+    ],
+    "hint": "C'est le chiffre juste avant huit.",
+    "explanation": "SEPTIÈME commence par SEPT : SEPT-ième.",
+    "tags": [
+      "nombres",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-007",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal marin se cache dans le mot DAUPHINÉ ?",
+    "image_url": null,
+    "answer": "dauphin",
+    "accepted_answers": [
+      "dauphin"
+    ],
+    "hint": "C'est un mammifère marin très intelligent.",
+    "explanation": "DAUPHINÉ commence par DAUPHIN : DAUPHIN-é.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-008",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal se cache dans le mot CANETON ?",
+    "image_url": null,
+    "answer": "cane",
+    "accepted_answers": [
+      "cane"
+    ],
+    "hint": "C'est la maman du caneton.",
+    "explanation": "CANETON commence par CANE : CANE-ton.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-009",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel vêtement se cache dans le mot MICROBE ?",
+    "image_url": null,
+    "answer": "robe",
+    "accepted_answers": [
+      "robe"
+    ],
+    "hint": "C'est un vêtement féminin.",
+    "explanation": "Dans mic-ROBE, les lettres R-O-B-E forment le mot ROBE.",
+    "tags": [
+      "vêtements",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-010",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal se cache dans le mot SERPENTINE ?",
+    "image_url": null,
+    "answer": "serpent",
+    "accepted_answers": [
+      "serpent"
+    ],
+    "hint": "C'est un reptile sans pattes.",
+    "explanation": "SERPENTINE commence par SERPENT : SERPENT-ine.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-011",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel métal précieux se cache dans le mot FORÊT ?",
+    "image_url": null,
+    "answer": "or",
+    "accepted_answers": [
+      "or"
+    ],
+    "hint": "C'est le plus précieux des métaux.",
+    "explanation": "Dans f-OR-êt, les deux lettres O-R forment le mot OR.",
+    "tags": [
+      "métaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-012",
+    "type": "mot_cache",
+    "difficulty": 1,
+    "question": "Quel animal se cache dans le mot CANARDEAU ?",
+    "image_url": null,
+    "answer": "canard",
+    "accepted_answers": [
+      "canard"
+    ],
+    "hint": "C'est le parent de ce petit palmipède.",
+    "explanation": "CANARDEAU commence par CANARD : CANARD-eau.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-013",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel sport se cache dans le mot ESCRIMEUR ?",
+    "image_url": null,
+    "answer": "escrime",
+    "accepted_answers": [
+      "escrime"
+    ],
+    "hint": "C'est la discipline que pratique cet athlète.",
+    "explanation": "ESCRIMEUR contient ESCRIME : ESCRIME-ur.",
+    "tags": [
+      "sports",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-014",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quelle couleur se cache dans le mot NOIRAUD ?",
+    "image_url": null,
+    "answer": "noir",
+    "accepted_answers": [
+      "noir"
+    ],
+    "hint": "C'est la couleur caractéristique de cette personne.",
+    "explanation": "NOIRAUD commence par NOIR : NOIR-aud.",
+    "tags": [
+      "couleurs",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-015",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel prénom féminin se cache dans le mot MARIETTE ?",
+    "image_url": null,
+    "answer": "Marie",
+    "accepted_answers": [
+      "marie",
+      "Marie"
+    ],
+    "hint": "C'est l'un des prénoms féminins les plus répandus en France.",
+    "explanation": "MARIETTE commence par MARIE : M-A-R-I-E-tte.",
+    "tags": [
+      "prénoms",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-016",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel outil de jardin se cache dans le mot SCALPELLE ?",
+    "image_url": null,
+    "answer": "pelle",
+    "accepted_answers": [
+      "pelle"
+    ],
+    "hint": "On s'en sert pour creuser la terre.",
+    "explanation": "Dans scal-PELLE, les lettres P-E-L-L-E forment le mot PELLE.",
+    "tags": [
+      "outils",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-017",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel animal se cache dans le mot MANÈGE ?",
+    "image_url": null,
+    "answer": "âne",
+    "accepted_answers": [
+      "ane",
+      "âne"
+    ],
+    "hint": "Il est têtu et à longues oreilles.",
+    "explanation": "Dans m-ÂNE-ge : MANÈGE contient les lettres A-N-E consécutives en positions 2-3-4 : m-A-N-E-ge.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-018",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel pays se cache dans le mot LIBANAIS ?",
+    "image_url": null,
+    "answer": "Liban",
+    "accepted_answers": [
+      "liban",
+      "Liban"
+    ],
+    "hint": "C'est un pays du Moyen-Orient.",
+    "explanation": "LIBANAIS commence par LIBAN : L-I-B-A-N-ais.",
+    "tags": [
+      "pays",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-019",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel mot lié à la création se cache dans MARTEAU ?",
+    "image_url": null,
+    "answer": "art",
+    "accepted_answers": [
+      "art"
+    ],
+    "hint": "Ce n'est pas l'outil lui-même — cherche un mot de 3 lettres à l'intérieur.",
+    "explanation": "Dans m-ART-eau, les lettres A-R-T forment le mot ART.",
+    "tags": [
+      "art",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-020",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel pays africain se cache dans le mot ANORMALISÉ ?",
+    "image_url": null,
+    "answer": "Mali",
+    "accepted_answers": [
+      "mali",
+      "Mali"
+    ],
+    "hint": "C'est un grand pays enclavé d'Afrique de l'Ouest.",
+    "explanation": "Dans anor-MALI-sé, les lettres M-A-L-I forment le mot MALI.",
+    "tags": [
+      "pays",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-021",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel pays se cache dans le mot CUBAINE ?",
+    "image_url": null,
+    "answer": "Cuba",
+    "accepted_answers": [
+      "cuba",
+      "Cuba"
+    ],
+    "hint": "C'est une île des Caraïbes.",
+    "explanation": "CUBAINE commence par CUBA : C-U-B-A-ine.",
+    "tags": [
+      "pays",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-022",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel animal se cache dans la phrase 'Tu as raté ton bus' ?",
+    "image_url": null,
+    "answer": "rat",
+    "accepted_answers": [
+      "rat"
+    ],
+    "hint": "Cherche à cheval sur deux mots de la phrase.",
+    "explanation": "Dans 'tu as RAté' : les lettres R-A-T forment le mot RAT, à cheval entre 'as' et 'raté' : as-R-A-T-é.",
+    "tags": [
+      "animaux",
+      "phrases"
+    ]
+  },
+  {
+    "id": "motc-023",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel astre nocturne se cache dans le mot LUNETTES ?",
+    "image_url": null,
+    "answer": "lune",
+    "accepted_answers": [
+      "lune"
+    ],
+    "hint": "Elle éclaire la nuit.",
+    "explanation": "LUNETTES commence par LUNE : L-U-N-E-ttes.",
+    "tags": [
+      "astronomie",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-024",
+    "type": "mot_cache",
+    "difficulty": 3,
+    "question": "Quel pays se cache dans la phrase 'Il partira nettement plus tôt' ?",
+    "image_url": null,
+    "answer": "Iran",
+    "accepted_answers": [
+      "iran",
+      "Iran"
+    ],
+    "hint": "Cherche à cheval entre deux mots de la phrase.",
+    "explanation": "Dans 'partIRA Nettement' : les lettres I-R-A-N forment IRAN, à cheval entre 'partira' et 'nettement' : part-I-R-A-N-ettement.",
+    "tags": [
+      "pays",
+      "phrases"
+    ]
+  },
+  {
+    "id": "motc-025",
+    "type": "mot_cache",
+    "difficulty": 3,
+    "question": "Quel animal se cache dans le mot PROCLAMATION ?",
+    "image_url": null,
+    "answer": "lama",
+    "accepted_answers": [
+      "lama"
+    ],
+    "hint": "C'est un camélidé d'Amérique du Sud.",
+    "explanation": "Dans proc-LAMA-tion, les lettres L-A-M-A forment le mot LAMA.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-026",
+    "type": "mot_cache",
+    "difficulty": 3,
+    "question": "Quel oiseau se cache dans la suite de lettres CALIBISTRI ?",
+    "image_url": null,
+    "answer": "ibis",
+    "accepted_answers": [
+      "ibis"
+    ],
+    "hint": "C'est un échassier au long bec courbe.",
+    "explanation": "Dans cal-IBIS-tri, les lettres I-B-I-S forment le mot IBIS.",
+    "tags": [
+      "animaux",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-027",
+    "type": "mot_cache",
+    "difficulty": 3,
+    "question": "Quelle planète se cache dans le mot MARSOUIN ?",
+    "image_url": null,
+    "answer": "Mars",
+    "accepted_answers": [
+      "mars",
+      "Mars"
+    ],
+    "hint": "C'est la planète rouge.",
+    "explanation": "MARSOUIN commence par MARS : M-A-R-S-ouin.",
+    "tags": [
+      "planètes",
+      "lettres"
+    ]
+  },
+  {
+    "id": "motc-028",
+    "type": "mot_cache",
+    "difficulty": 3,
+    "question": "Quel animal se cache dans la phrase 'La valeur boursière a chuté' ?",
+    "image_url": null,
+    "answer": "ours",
+    "accepted_answers": [
+      "ours"
+    ],
+    "hint": "Cherche à cheval entre deux mots de la phrase.",
+    "explanation": "Dans 'valeur bOURSière' : les lettres O-U-R-S forment OURS, à cheval entre 'boursière' : b-O-U-R-S-ière.",
+    "tags": [
+      "animaux",
+      "phrases"
+    ]
+  },
+  {
+    "id": "motc-029",
+    "type": "mot_cache",
+    "difficulty": 3,
+    "question": "Quel animal se cache dans la phrase 'Il a signé un contrat avantageux' ?",
+    "image_url": null,
+    "answer": "rat",
+    "accepted_answers": [
+      "rat"
+    ],
+    "hint": "Cherche à l'intérieur d'un seul mot de la phrase.",
+    "explanation": "Dans 'cont-RAT-avantageux' : le mot CONTRAT contient les lettres R-A-T : cont-R-A-T.",
+    "tags": [
+      "animaux",
+      "phrases"
+    ]
+  },
+  {
+    "id": "motc-030",
+    "type": "mot_cache",
+    "difficulty": 2,
+    "question": "Quel animal se cache dans la phrase 'Notre collaboration est fructueuse' ?",
+    "image_url": null,
+    "answer": "rat",
+    "accepted_answers": [
+      "rat"
+    ],
+    "hint": "Cherche à l'intérieur d'un long mot de la phrase.",
+    "explanation": "Dans 'collabo-RAT-ion' : le mot COLLABORATION contient les lettres R-A-T : collabo-R-A-T-ion.",
+    "tags": [
+      "animaux",
+      "phrases"
+    ]
+  }
+]
