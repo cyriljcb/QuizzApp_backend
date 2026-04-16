@@ -1,14 +1,17 @@
-version: '3.8'
-
 services:
   quizz-backend:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: quizz-backend
     ports:
       - "5000:5000"
     volumes:
-      # Persiste la base SQLite et les questions hors du conteneur
-      - ./data:/app/data
+      # La base SQLite est persistée en dehors du conteneur
+      - quizz-data:/app/data
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     restart: unless-stopped
+
+volumes:
+  quizz-data:
