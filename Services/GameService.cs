@@ -24,11 +24,14 @@ public class GameService
     {
         var code = GenerateRoomCode();
 
+        // L'hôte joue aussi — il est enregistré comme Player.
+        // L'autorisation de lancer/annuler la partie se fait via
+        // room.HostConnectionId, pas via le rôle.
         var host = new Player
         {
             ConnectionId = hostConnectionId,
             Pseudo = hostPseudo,
-            Role = PlayerRole.Host
+            Role = PlayerRole.Player
         };
 
         var room = new Room

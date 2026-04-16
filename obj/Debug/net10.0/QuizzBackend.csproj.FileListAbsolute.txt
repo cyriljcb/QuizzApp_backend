@@ -158,3 +158,4 @@ D:\cours\formation\ProjetCode\quizz\QuizzBackend\bin\Debug\net10.0\Data\Question
 D:\cours\formation\ProjetCode\quizz\QuizzBackend\bin\Debug\net10.0\QuizzBackend.staticwebassets.runtime.json
 D:\cours\formation\ProjetCode\quizz\QuizzBackend\bin\Debug\net10.0\Data\Questions\test.json
 D:\cours\formation\ProjetCode\quizz\QuizzBackend\obj\Debug\net10.0\compressed\9r492vr5ax-{0}-ntub91uly6-ntub91uly6.gz
+D:\cours\formation\ProjetCode\quizz\QuizzBackend\obj\Debug\net10.0\QuizzBackend.sourcelink.json
